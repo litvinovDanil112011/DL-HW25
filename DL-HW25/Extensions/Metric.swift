@@ -9,4 +9,8 @@ import UIKit
 
 enum Metric {
     static let indentNames: CGFloat = 20
+    static let indentImage: CGFloat = 50
+    static let indentViewsInfo: CGFloat = 50
+
+
 }

@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		FAC0B2F628CE08FB00676078 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B2F528CE08FB00676078 /* AppDelegate.swift */; };
 		FAC0B2F828CE08FB00676078 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B2F728CE08FB00676078 /* SceneDelegate.swift */; };
-		FAC0B2FA28CE08FB00676078 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B2F928CE08FB00676078 /* ViewController.swift */; };
 		FAC0B2FD28CE08FB00676078 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC0B2FB28CE08FB00676078 /* Main.storyboard */; };
 		FAC0B2FF28CE08FC00676078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC0B2FE28CE08FC00676078 /* Assets.xcassets */; };
 		FAC0B30228CE08FC00676078 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC0B30028CE08FC00676078 /* LaunchScreen.storyboard */; };
+		FAC0B30B28CE0A1700676078 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FAC0B30A28CE0A1700676078 /* Alamofire */; };
+		FAC0B30E28CE0A7B00676078 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAC0B30D28CE0A7B00676078 /* SnapKit */; };
+		FAC0B31528CE0C0800676078 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B31428CE0C0800676078 /* MainScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FAC0B2F228CE08FB00676078 /* DL-HW25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DL-HW25.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC0B2F528CE08FB00676078 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC0B2F728CE08FB00676078 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAC0B2F928CE08FB00676078 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAC0B2FC28CE08FB00676078 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAC0B2FE28CE08FC00676078 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC0B30128CE08FC00676078 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAC0B30328CE08FC00676078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAC0B31428CE0C0800676078 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC0B30B28CE0A1700676078 /* Alamofire in Frameworks */,
+				FAC0B30E28CE0A7B00676078 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC0B2F428CE08FB00676078 /* DL-HW25 */,
+				FAC0B31228CE0B8700676078 /* Resourse */,
 				FAC0B2F328CE08FB00676078 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,15 +61,38 @@
 		FAC0B2F428CE08FB00676078 /* DL-HW25 */ = {
 			isa = PBXGroup;
 			children = (
-				FAC0B2F528CE08FB00676078 /* AppDelegate.swift */,
-				FAC0B2F728CE08FB00676078 /* SceneDelegate.swift */,
-				FAC0B2F928CE08FB00676078 /* ViewController.swift */,
-				FAC0B2FB28CE08FB00676078 /* Main.storyboard */,
-				FAC0B2FE28CE08FC00676078 /* Assets.xcassets */,
-				FAC0B30028CE08FC00676078 /* LaunchScreen.storyboard */,
-				FAC0B30328CE08FC00676078 /* Info.plist */,
+				FAC0B31328CE0BBC00676078 /* Module */,
+				FAC0B31128CE0B7D00676078 /* App */,
 			);
 			path = "DL-HW25";
+			sourceTree = "<group>";
+		};
+		FAC0B31128CE0B7D00676078 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0B2F528CE08FB00676078 /* AppDelegate.swift */,
+				FAC0B2F728CE08FB00676078 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FAC0B31228CE0B8700676078 /* Resourse */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0B30328CE08FC00676078 /* Info.plist */,
+				FAC0B30028CE08FC00676078 /* LaunchScreen.storyboard */,
+				FAC0B2FE28CE08FC00676078 /* Assets.xcassets */,
+				FAC0B2FB28CE08FB00676078 /* Main.storyboard */,
+			);
+			path = Resourse;
+			sourceTree = "<group>";
+		};
+		FAC0B31328CE0BBC00676078 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0B31428CE0C0800676078 /* MainScreenViewController.swift */,
+			);
+			path = Module;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +111,10 @@
 			dependencies = (
 			);
 			name = "DL-HW25";
+			packageProductDependencies = (
+				FAC0B30A28CE0A1700676078 /* Alamofire */,
+				FAC0B30D28CE0A7B00676078 /* SnapKit */,
+			);
 			productName = "DL-HW25";
 			productReference = FAC0B2F228CE08FB00676078 /* DL-HW25.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +143,10 @@
 				Base,
 			);
 			mainGroup = FAC0B2E928CE08FB00676078;
+			packageReferences = (
+				FAC0B30928CE0A1700676078 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FAC0B30C28CE0A7B00676078 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FAC0B2F328CE08FB00676078 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +174,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC0B2FA28CE08FB00676078 /* ViewController.swift in Sources */,
 				FAC0B2F628CE08FB00676078 /* AppDelegate.swift in Sources */,
+				FAC0B31528CE0C0800676078 /* MainScreenViewController.swift in Sources */,
 				FAC0B2F828CE08FB00676078 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +325,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3T8H6J3Z8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "DL-HW25/Info.plist";
+				INFOPLIST_FILE = "DL-HW25/Resourse/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +353,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U3T8H6J3Z8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "DL-HW25/Info.plist";
+				INFOPLIST_FILE = "DL-HW25/Resourse/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -358,6 +394,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAC0B30928CE0A1700676078 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		FAC0B30C28CE0A7B00676078 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAC0B30A28CE0A1700676078 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAC0B30928CE0A1700676078 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		FAC0B30D28CE0A7B00676078 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAC0B30C28CE0A7B00676078 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAC0B2EA28CE08FB00676078 /* Project object */;
 }

@@ -12,6 +12,7 @@
 		FA46C06428CE159500CB37A2 /* Metric.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46C06328CE159500CB37A2 /* Metric.swift */; };
 		FA46C06628CE15EA00CB37A2 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46C06528CE15EA00CB37A2 /* Builder.swift */; };
 		FA46C06828CE16B100CB37A2 /* InfoPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46C06728CE16B100CB37A2 /* InfoPersonViewController.swift */; };
+		FA46C06B28D0FD5B00CB37A2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA46C06A28D0FD5B00CB37A2 /* Kingfisher */; };
 		FAC0B2F628CE08FB00676078 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B2F528CE08FB00676078 /* AppDelegate.swift */; };
 		FAC0B2F828CE08FB00676078 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B2F728CE08FB00676078 /* SceneDelegate.swift */; };
 		FAC0B2FD28CE08FB00676078 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC0B2FB28CE08FB00676078 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		FAC0B30B28CE0A1700676078 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FAC0B30A28CE0A1700676078 /* Alamofire */; };
 		FAC0B30E28CE0A7B00676078 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAC0B30D28CE0A7B00676078 /* SnapKit */; };
 		FAC0B31528CE0C0800676078 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0B31428CE0C0800676078 /* MainScreenViewController.swift */; };
+		FADED09828E9AE19009E1D95 /* NetworkMeneger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADED09728E9AE19009E1D95 /* NetworkMeneger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,7 @@
 		FAC0B30128CE08FC00676078 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAC0B30328CE08FC00676078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAC0B31428CE0C0800676078 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		FADED09728E9AE19009E1D95 /* NetworkMeneger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMeneger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA46C06B28D0FD5B00CB37A2 /* Kingfisher in Frameworks */,
 				FAC0B30B28CE0A1700676078 /* Alamofire in Frameworks */,
 				FAC0B30E28CE0A7B00676078 /* SnapKit in Frameworks */,
 			);
@@ -78,9 +82,9 @@
 		FAC0B2F428CE08FB00676078 /* DL-HW25 */ = {
 			isa = PBXGroup;
 			children = (
+				FAC0B31328CE0BBC00676078 /* Module */,
 				FA46C06228CE157800CB37A2 /* Extensions */,
 				FAC0B31228CE0B8700676078 /* Resourse */,
-				FAC0B31328CE0BBC00676078 /* Module */,
 				FAC0B31128CE0B7D00676078 /* App */,
 			);
 			path = "DL-HW25";
@@ -110,12 +114,29 @@
 		FAC0B31328CE0BBC00676078 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				FAC0B31428CE0C0800676078 /* MainScreenViewController.swift */,
-				FA46C05E28CE0EE000CB37A2 /* Cell.swift */,
-				FA46C06728CE16B100CB37A2 /* InfoPersonViewController.swift */,
-				FA46C06028CE0FC800CB37A2 /* Model.swift */,
+				FADED0B428ECC486009E1D95 /* ModuleInfoScreen */,
+				FADED0B328ECC458009E1D95 /* ModuleMainScreen */,
 			);
 			path = Module;
+			sourceTree = "<group>";
+		};
+		FADED0B328ECC458009E1D95 /* ModuleMainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0B31428CE0C0800676078 /* MainScreenViewController.swift */,
+				FA46C05E28CE0EE000CB37A2 /* Cell.swift */,
+				FA46C06028CE0FC800CB37A2 /* Model.swift */,
+				FADED09728E9AE19009E1D95 /* NetworkMeneger.swift */,
+			);
+			path = ModuleMainScreen;
+			sourceTree = "<group>";
+		};
+		FADED0B428ECC486009E1D95 /* ModuleInfoScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FA46C06728CE16B100CB37A2 /* InfoPersonViewController.swift */,
+			);
+			path = ModuleInfoScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +158,7 @@
 			packageProductDependencies = (
 				FAC0B30A28CE0A1700676078 /* Alamofire */,
 				FAC0B30D28CE0A7B00676078 /* SnapKit */,
+				FA46C06A28D0FD5B00CB37A2 /* Kingfisher */,
 			);
 			productName = "DL-HW25";
 			productReference = FAC0B2F228CE08FB00676078 /* DL-HW25.app */;
@@ -169,6 +191,7 @@
 			packageReferences = (
 				FAC0B30928CE0A1700676078 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FAC0B30C28CE0A7B00676078 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				FA46C06928D0FD5B00CB37A2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = FAC0B2F328CE08FB00676078 /* Products */;
 			projectDirPath = "";
@@ -199,6 +222,7 @@
 			files = (
 				FA46C06128CE0FC800CB37A2 /* Model.swift in Sources */,
 				FAC0B2F628CE08FB00676078 /* AppDelegate.swift in Sources */,
+				FADED09828E9AE19009E1D95 /* NetworkMeneger.swift in Sources */,
 				FA46C06628CE15EA00CB37A2 /* Builder.swift in Sources */,
 				FA46C06828CE16B100CB37A2 /* InfoPersonViewController.swift in Sources */,
 				FA46C05F28CE0EE000CB37A2 /* Cell.swift in Sources */,
@@ -424,6 +448,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA46C06928D0FD5B00CB37A2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		FAC0B30928CE0A1700676078 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -443,6 +475,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA46C06A28D0FD5B00CB37A2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA46C06928D0FD5B00CB37A2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		FAC0B30A28CE0A1700676078 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FAC0B30928CE0A1700676078 /* XCRemoteSwiftPackageReference "Alamofire" */;

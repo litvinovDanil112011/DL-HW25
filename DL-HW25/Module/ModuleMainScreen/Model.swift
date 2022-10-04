@@ -12,9 +12,9 @@ struct Cards: Decodable {
 }
 
 struct Card: Decodable {
-    let name: String
-    let setName: String
-    let artist: String
-    let imageURL: String
+    let name: String?
+    let setName: String?
+    let artist: String?
+    let imageURL: String?
 }
 

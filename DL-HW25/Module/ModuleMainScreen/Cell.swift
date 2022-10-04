@@ -19,10 +19,12 @@ class Cell: UITableViewCell {
         return label
     }()
     
-    let setNameLabel: UILabel = {
+    let setLabel: UILabel = {
         let label = UILabel()
-        label.tintColor = .systemGray
-        label.textAlignment = .right
+        label.tintColor = .black
+        label.textAlignment = .left
+        label.textColor = .systemGray2
+        label.font = label.font.withSize(Metric.sizeTextLabel)
         return label
     }()
     
@@ -40,19 +42,19 @@ class Cell: UITableViewCell {
     
     private func setupLayuot() {
         contentView.addSubview(nameLabel)
-        contentView.addSubview(setNameLabel)
-
+        contentView.addSubview(setLabel)
     }
     
     private func setupView() {
         nameLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(contentView)
+            make.centerY.equalTo(contentView).offset(-Metric.paddingYCell)
             make.left.equalTo(contentView).offset(Metric.indentNames)
         }
         
-        setNameLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(contentView)
-            make.right.equalTo(contentView).offset(Metric.indentNames)
+        setLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(contentView).offset(Metric.paddingYCell)
+            make.left.equalTo(contentView).offset(Metric.indentNames)
         }
+        
     }
 }

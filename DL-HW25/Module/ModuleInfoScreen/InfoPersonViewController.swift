@@ -7,45 +7,45 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class InfoPersonViewController: UIViewController {
     
+    var cardsInfo: Card?
+    
     private lazy var imageView: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = .red
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
     private lazy var nameInfoLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 40)
-        label.textColor = .black
-        label.text = "nameInfoLabel"
+        label.textColor = .systemBlue
         return label
     }()
     
     private lazy var setNameInfoLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 30)
-        label.textColor = .black
-        label.text = "setNameInfoLabel"
+        label.font = .systemFont(ofSize: 40)
+        label.textColor = .systemBlue
         return label
     }()
     
     private lazy var artistInfoLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20)
-        label.textColor = .black
-        label.text = "artistInfoLabel"
+        label.font = .systemFont(ofSize: 40)
+        label.textColor = .systemBlue
         return label
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataInfoView()
         setupLayuot()
         setupView()
-        view.backgroundColor = .orange
-        
+        view.backgroundColor = .white
     }
     
     private func setupLayuot() {
@@ -78,4 +78,11 @@ class InfoPersonViewController: UIViewController {
             make.right.equalTo(view).offset( -Metric.indentImage)
         }
     }
+    
+    private func dataInfoView() {
+        nameInfoLabel.text = "\(String(describing: cardsInfo?.name ?? "No name"))"
+        setNameInfoLabel.text = "\(String(describing: cardsInfo?.setName ?? "No setName"))"
+        artistInfoLabel.text = "\(String(describing: cardsInfo?.artist ?? "No Artist"))"
+    }
 }
+

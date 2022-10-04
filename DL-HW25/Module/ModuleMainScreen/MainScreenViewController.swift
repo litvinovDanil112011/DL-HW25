@@ -7,21 +7,24 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class MainScreenViewController: UIViewController {
     
+    var cardsArray = [Card]()
+    
     let tableView: UITableView = {
-        let table = UITableView(frame: .zero, style: .grouped)
+        let table = UITableView(frame: .zero, style: .plain)
         table.register(Cell.self, forCellReuseIdentifier: Cell.id)
         return table
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "List of Heroes"
+        getData()
         setupLayuot()
         setupView()
-        
-        title = "List of Heroes"
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -40,18 +43,27 @@ class MainScreenViewController: UIViewController {
 extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return cardsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.id, for: indexPath) 
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.id, for: indexPath) as? Cell else { return UITableViewCell() }
+        cell.nameLabel.text = cardsArray[indexPath.row].name
+        cell.setLabel.text = cardsArray[indexPath.row].artist
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let distantions = InfoPersonViewController()
-       // self.present(distantions, animated: true)
+        //        self.present(distantions, animated: true)
         navigationController?.pushViewController(distantions, animated: true)
         tableView.deselectRow(at: indexPath, animated: false)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let distantion = segue.destination as? InfoPersonViewController {
+            distantion.cardsInfo = cardsArray[tableView.indexPathForSelectedRow!.row]
+        }
+    }
 }
+

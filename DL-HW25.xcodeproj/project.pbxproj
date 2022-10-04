@@ -110,12 +110,20 @@
 		FAC0B31328CE0BBC00676078 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				FAC0B31428CE0C0800676078 /* MainScreenViewController.swift */,
-				FA46C05E28CE0EE000CB37A2 /* Cell.swift */,
+				FADED0B528ECC589009E1D95 /* ModuleMainScreen */,
 				FA46C06728CE16B100CB37A2 /* InfoPersonViewController.swift */,
-				FA46C06028CE0FC800CB37A2 /* Model.swift */,
 			);
 			path = Module;
+			sourceTree = "<group>";
+		};
+		FADED0B528ECC589009E1D95 /* ModuleMainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0B31428CE0C0800676078 /* MainScreenViewController.swift */,
+				FA46C05E28CE0EE000CB37A2 /* Cell.swift */,
+				FA46C06028CE0FC800CB37A2 /* Model.swift */,
+			);
+			path = ModuleMainScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

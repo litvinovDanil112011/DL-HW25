@@ -8,8 +8,7 @@
 import Foundation
 import Alamofire
 
-extension MainScreenViewController {
-    
+extension MainScreenViewController {    
     func getData() {
             if self.cardsArray.isEmpty {
             let request = AF.request("https://api.magicthegathering.io/v1/cards")

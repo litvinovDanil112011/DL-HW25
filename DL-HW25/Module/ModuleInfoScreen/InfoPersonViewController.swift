@@ -10,32 +10,33 @@ import SnapKit
 import Alamofire
 
 class InfoPersonViewController: UIViewController {
-    
+     
     var cardsInfo: Card?
+    let networkMenegerInfoScreen = NetworkMenegerInfoScreen()
     
-    private lazy var imageView: UIImageView = {
+     let imageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         return image
     }()
     
-    private lazy var nameInfoLabel: UILabel = {
+     let nameInfoLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 40)
+        label.font = .systemFont(ofSize: 30)
         label.textColor = .systemBlue
         return label
     }()
     
-    private lazy var setNameInfoLabel: UILabel = {
+     let setNameInfoLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 40)
+        label.font = .systemFont(ofSize: 30)
         label.textColor = .systemBlue
         return label
     }()
     
-    private lazy var artistInfoLabel: UILabel = {
+     let artistInfoLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 40)
+        label.font = .systemFont(ofSize: 30)
         label.textColor = .systemBlue
         return label
     }()
@@ -83,6 +84,11 @@ class InfoPersonViewController: UIViewController {
         nameInfoLabel.text = "\(String(describing: cardsInfo?.name ?? "No name"))"
         setNameInfoLabel.text = "\(String(describing: cardsInfo?.setName ?? "No setName"))"
         artistInfoLabel.text = "\(String(describing: cardsInfo?.artist ?? "No Artist"))"
+        guard let image = cardsInfo?.imageURL else {
+            imageView.backgroundColor = .red
+            return }
+        networkMenegerInfoScreen.makeRequestUrl(urlRequest: image, image: imageView)
+        
     }
 }
 

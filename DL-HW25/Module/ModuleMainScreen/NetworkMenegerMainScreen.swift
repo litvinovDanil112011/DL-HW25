@@ -8,18 +8,21 @@
 import Foundation
 import Alamofire
 
-extension MainScreenViewController {    
+class NetworkMenegerMainScreen {
+    
     func getData() {
-            if self.cardsArray.isEmpty {
+        if MainScreenViewController.cardsArray.isEmpty {
             let request = AF.request("https://api.magicthegathering.io/v1/cards")
-            request.responseDecodable(of: Cards.self) { [self] (data) in
+            request.responseDecodable(of: Cards.self) { (data) in
                 guard let cardData = data.value else { return }
                 let cards = cardData.cards
-                self.cardsArray = cards
-                tableView.reloadData()
+                MainScreenViewController.cardsArray = cards
+                MainScreenViewController.tableView.reloadData()
             }
         }
     }
 }
+
+
 
 

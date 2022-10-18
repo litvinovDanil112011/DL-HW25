@@ -11,9 +11,11 @@ import Alamofire
 
 class MainScreenViewController: UIViewController {
     
-    var cardsArray = [Card]()
+    var networkMeneger = NetworkMenegerMainScreen()
+    static var cardsArray = [Card]()
+    var cardsArrayCell: Card?
     
-    let tableView: UITableView = {
+    static let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.register(Cell.self, forCellReuseIdentifier: Cell.id)
         return table
@@ -22,19 +24,22 @@ class MainScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "List of Heroes"
-        getData()
+        networkMeneger.getData()
         setupLayuot()
         setupView()
-        tableView.dataSource = self
-        tableView.delegate = self
+        MainScreenViewController.tableView.dataSource = self
+        MainScreenViewController.tableView.delegate = self
+        DispatchQueue.main.async {
+            MainScreenViewController.tableView.reloadData()
+        }
     }
     
     private func setupLayuot() {
-        view.addSubview(tableView)
+        view.addSubview(MainScreenViewController.tableView)
     }
     
     private func setupView() {
-        tableView.snp.makeConstraints { make in
+        MainScreenViewController.tableView.snp.makeConstraints { make in
             make.top.bottom.left.right.equalTo(view)
         }
     }
@@ -43,13 +48,13 @@ class MainScreenViewController: UIViewController {
 extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cardsArray.count
+        return MainScreenViewController.cardsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.id, for: indexPath) as? Cell else { return UITableViewCell() }
-        cell.nameLabel.text = cardsArray[indexPath.row].name
-        cell.setLabel.text = cardsArray[indexPath.row].artist
+        cell.nameLabel.text = MainScreenViewController.cardsArray[indexPath.row].name
+        cell.setLabel.text = MainScreenViewController.cardsArray[indexPath.row].artist
         return cell
     }
     
@@ -60,9 +65,9 @@ extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let distantion = segue.destination as? InfoPersonViewController {
-            distantion.cardsInfo = cardsArray[tableView.indexPathForSelectedRow!.row]
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.destination is InfoPersonViewController {
+        cardsArrayCell = MainScreenViewController.cardsArray[MainScreenViewController.tableView.indexPathForSelectedRow!.row]
         }
     }
 }

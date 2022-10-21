@@ -15,6 +15,5 @@ struct Card: Decodable {
     let name: String?
     let setName: String?
     let artist: String?
-    let imageURL: String?
 }
 

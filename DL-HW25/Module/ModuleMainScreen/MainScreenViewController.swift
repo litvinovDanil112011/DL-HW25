@@ -7,40 +7,38 @@
 
 import UIKit
 import SnapKit
-import Alamofire
 
 class MainScreenViewController: UIViewController {
     
-    var networkMeneger = NetworkMenegerMainScreen()
-    static var cardsArray = [Card]()
-    var cardsArrayCell: Card?
+    var cardsArray = [Card]()
+    let networkManager = NetworkManager()
     
-    static let tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
-        table.register(Cell.self, forCellReuseIdentifier: Cell.id)
+        table.dataSource = self
+        table.delegate = self
+        table.register(Cell.self, forCellReuseIdentifier: Cell.identifier)
         return table
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "List of Heroes"
-        networkMeneger.getData()
-        setupLayuot()
         setupView()
-        MainScreenViewController.tableView.dataSource = self
-        MainScreenViewController.tableView.delegate = self
-        DispatchQueue.main.async {
-            MainScreenViewController.tableView.reloadData()
-        }
-    }
-    
-    private func setupLayuot() {
-        view.addSubview(MainScreenViewController.tableView)
+        getData()
     }
     
     private func setupView() {
-        MainScreenViewController.tableView.snp.makeConstraints { make in
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
             make.top.bottom.left.right.equalTo(view)
+        }
+    }
+    
+    private func getData() {
+        networkManager.fetchData { cards in
+            self.cardsArray = cards
+            self.tableView.reloadData()
         }
     }
 }
@@ -48,27 +46,22 @@ class MainScreenViewController: UIViewController {
 extension MainScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MainScreenViewController.cardsArray.count
+        return cardsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.id, for: indexPath) as? Cell else { return UITableViewCell() }
-        cell.nameLabel.text = MainScreenViewController.cardsArray[indexPath.row].name
-        cell.setLabel.text = MainScreenViewController.cardsArray[indexPath.row].artist
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.identifier, for: indexPath) as? Cell else { return UITableViewCell() }
+        cell.nameLabel.text = cardsArray[indexPath.row].name
+        cell.setLabel.text = cardsArray[indexPath.row].artist
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let distantions = InfoPersonViewController()
-        //        self.present(distantions, animated: true)
+        distantions.card = cardsArray[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
         navigationController?.pushViewController(distantions, animated: true)
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
-    
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.destination is InfoPersonViewController {
-        cardsArrayCell = MainScreenViewController.cardsArray[MainScreenViewController.tableView.indexPathForSelectedRow!.row]
-        }
     }
 }
+
 

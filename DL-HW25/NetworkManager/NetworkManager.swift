@@ -7,16 +7,20 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 class NetworkManager {
-    
+            
     func fetchData(handler: @escaping ([Card]) -> Void) {
         
         guard let url = URL(string: "https://api.magicthegathering.io/v1/cards") else { return }
         
         AF.request(url).response { response in
             do {
-                let responseData = try JSONDecoder().decode(Cards.self, from: response.data!)
+                guard let responseDataSet = response.data else {
+                    print("no data")
+                    return }
+                let responseData = try JSONDecoder().decode(Cards.self, from: responseDataSet)
                 handler(responseData.cards)
             } catch let error {
                 print(error.localizedDescription)
@@ -24,3 +28,6 @@ class NetworkManager {
         }
     }
 }
+
+    
+        
